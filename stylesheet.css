@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	color: #333;
+	font-size: 13px;
+	line-height: 150%;
+}
+
+/* -------------------- wrapper -------------------- */
+#wrapper {
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+    border: 0px;
+    background-color: #FFF;
+    top: 10px;
+}
+
+/* -------------------- header -------------------- */
+#header{
+    width:100%;
+}
+#header h1{
+    margin:0;
+    padding:0;
+}
+
+#corridor{
+    width:100%;
+    height:auto;
+}
+
+/* -------------------- footer -------------------- */
+#footer{
+    clear: both;
+    width: 100%;
+    padding: 3px 0 3px 0;
+    background: #39F;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* -------------------- nav -------------------- */
+#nav {
+    width: 100%;
+}
+#nav ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#nav ul li {
+    width: 20%;
+    text-align: center;
+}
+#nav ul li a {
+    display: block;
+    height: 20px;
+    margin: 0;
+    padding: 10px;
+    color: #FFF;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: green;
+}
+
+#nav ul li a:hover{
+    filter: drop-shadow(10px 10px 10px black);
+}
+
+/* -------------------- container -------------------- */
+#container{
+    width: 100%;
+    margin: auto;
+    padding: auto;
+    padding-top: 20px;
+    clear: both;
+    display: grid;
+    grid-template-columns: 70vw 30vw;
+}
+/* -------------------- main -------------------- */
+#main{
+    width: 95%;
+    padding: 10px 30px 10px 10px;
+}
+#main h2{
+    margin: 0 0 10px 0;
+    padding: 3px 10px 3px 10px;
+    color: #FFF;
+    font-size: 16px;
+    border-left: solid 10px #c00;
+    background: #f90 url(../images/main_h2.jpg) right top repeat-y;
+}
+#main p{
+    margin: 0;
+    padding: 0;
+}
+#main .post{
+    margin: 0 0 30px 0;
+}
+#main .post img.right{
+    margin: 0 0 0 8px;
+}
+#main .post img.left{
+    margin: 0 8px 0 0;
+}
+
+.right{
+    float: right;
+    width: 40%;
+    height: auto;
+}
+.left{
+    float: left;
+    width: 40%;
+    height: auto;
+}
+
+/* -------------------- clearfix -------------------- */
+.clearfix{
+    zoom: 1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* -------------------- side -------------------- */
+#side{
+    width: 85%;
+    padding: 20px;
+    background-color: #F99;
+}
+#side .box{
+    margin: 0 auto 30px auto;
+    padding: 0 0 20px 0;
+    background: url(images/side_box.png) bottom no-repeat;
+}
+#side .box h2{
+    margin: 0;
+    padding: 8px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: normal;
+    background: url(images/side_box_h2.png) center no-repeat;
+}
+#side .box .boxBody{
+    padding: 8px;
+    border-right: solid 1px #c36;
+    border-bottom: solid 1px #c36;
+    border-left: solid 1px #C36;
+    background: #FFF;
+}
+#side .box .boxBody ul{
+    margin: 0 0 16px 0;
+    padding: 0;
+}
+#side .box .boxBody ul li{
+    padding: 8px 0 8px 4px;
+    list-style: none;
+    border-bottom: solid 1px #C36;
+}
+
+#side .box .boxBody ul li:hover{
+    padding: 8px 0 8px 4px;
+    list-style: none;
+    border-bottom: solid 1px #c36;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
