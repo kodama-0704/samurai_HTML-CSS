@@ -1,75 +1,59 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>HTML/CSSの学習</title>
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-    <body>
-        <div id="header">
-            <h1><a href="index.html"><img id="corridor" src="images/corridor.jpg" alt="大学の廊下" /></a></h1>
-        </div>
-        <div id="wrapper">
-            <div id="nav">
-                <ul>
-                    <li><a href="home.html">ナビ1</a></li>
-                    <li><a href="#">ナビ2</a></li>
-                    <li><a href="#">ナビ3</a></li>
-                    <li><a href="#">ナビ4</a></li>
-                    <li><a href="#">ナビ5</a></li>
-                </ul>
-            </div>
-            <div id="container">
-                <div id="main">
-                    <div class="post">
-                        <p>ここには文章が入ります。ここには文章が入ります。ここには文章が入ります。<br />今は、適当な文章を入れてあります。これをダミーテキストといいます。</p>
-                    </div>
-                    <div class="post clearfix">
-                        <h2>小見出し1</h2>
-                        <img class="left" src="images/classroom.jpg" alt="授業風景"　/>
-                        <p>
-                            コンテンツ1の本文になります。コンテンツ1の本文になります。コンテンツ1の本文になります。コンテンツ1の本文になります。
-                            コンテンツ1の本文になります。コンテンツ1の本文になります。コンテンツ1の本文になります。コンテンツ1の本文になります。
-                        </p>
-                        <p><a href="#">→コンテンツ1のページへ</a></p>
-                    </div>
-                    <div class="post clearfix">
-                        <h2>小見出し2</h2>
-                        <img class="right" src="images/scale.jpg" alt="天秤" />
-                        <p>
-                            コンテンツ2の本文になります。コンテンツ2の本文になります。コンテンツ2の本文になります。コンテンツ2の本文になります。
-                            コンテンツ2の本文になります。コンテンツ2の本文になります。コンテンツ2の本文になります。コンテンツ2の本文になります。
-                        </p>
-                    </div>
-                </div>
-            <div id="side">
-                <div class="box">
-                    <h2>サイドメニュー1</h2>
-                    <div class="boxBody">
-                        <ul>
-                            <li>項目1</li>
-                            <li>項目2</li>
-                            <li>項目3</li>
-                            <li>項目4</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="box">
-                    <h2>サイドメニュー2</h2>
-                    <div class="boxBody">
-                        <ul>
-                            <li>項目1</li>
-                            <li>項目2</li>
-                            <li>項目3</li>
-                            <li>項目4</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div id="footer">
-            <p>&copy; 20xx 〇〇 All Rights Reserved.</p>
-        </div>
-    </body>
-</html>  
+  <head>
+    <meta charset="utf-8"/>
+  <title>ポップアップ</title>
+  <style>
+      /*ここにCSSを記述する*/
+      /*ポップアップウィンドウの背景*/
+.popup {
+  /*メッセージのコンテンツを中央に配置する*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*半透明の黒背景にする*/
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+
+  /*画面がスクロールしないように固定する*/
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/*メッセージのコンテンツ部分*/
+.content {
+  background: rgba(255,255,255,1);
+  padding: 30px;
+  width: 50%;
+}
+  </style>
+</head>
+<body>
+  <input id="target" type="text"/>
+  <button>取得</button>
+  <ul></ul>
+
+  <script src="jquery.min.js"></script>
+  <script>
+    const url = 'https://qiita.com/api/v2/tags/';
+
+    $('button').on('click', () => {
+      $.ajax({
+        url:url + $('#target').val() + '/items',
+        dataType:"json",
+      }).done(data => {
+        $('ul').empty();
+        
+        $.each(data, (index, value) => {
+            const elements = `<a href=${value.url}><li>${value.title}</li></a>`;
+
+            $('ul').append(elements);
+        })
+      })
+    })
+</script>
+</body>
+</html>
